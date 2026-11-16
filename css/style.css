@@ -1,0 +1,324 @@
+/* Салкын Төр: тунук бордо + алтын тема */
+:root {
+  --bg: #120403;
+  --wine: #3e0100;
+  --wine-deep: #280201;
+  --panel: rgba(40, 2, 1, .82);
+  --gold: #b8935a;
+  --gold-bright: #d9b673;
+  --gold-rgb: 184, 147, 90;
+  --text: #f6ece0;
+  --muted: #cdb9a5;
+  --ink: #1a0a05;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  color: var(--text);
+  font-family: "PT Sans", sans-serif;
+  padding-top: 64px;
+  background-color: var(--bg);
+  /* кофе демдеген бордо фон: жылуу жарыктар жана караңгы виньетка */
+  background-image:
+    radial-gradient(520px 520px at 88% 6%, rgba(200, 130, 70, .20), transparent 70%),
+    radial-gradient(360px 360px at 68% 40%, rgba(210, 150, 90, .09), transparent 70%),
+    radial-gradient(420px 420px at 6% 52%, rgba(170, 60, 30, .18), transparent 70%),
+    radial-gradient(900px 700px at 100% 0%, rgba(120, 70, 40, .35), transparent 65%),
+    radial-gradient(800px 600px at 0% 100%, rgba(90, 8, 4, .55), transparent 65%),
+    linear-gradient(180deg, #1d0605 0%, #120403 45%, #1a0504 100%);
+  background-attachment: fixed;
+}
+
+h2, h3, h4, .navbar-brand { font-family: "PT Serif", Georgia, serif; }
+
+/* Навигация */
+.st-nav {
+  background: rgba(40, 2, 1, .96);
+  border-bottom: 1px solid rgba(var(--gold-rgb), .4);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, .5);
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+.navbar-brand:hover, .navbar-brand:focus-visible { color: var(--gold-bright); }
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  object-fit: cover;
+}
+.nav-link { color: var(--text); }
+.nav-link:hover, .nav-link:focus-visible { color: var(--gold-bright); }
+.navbar-toggler { border-color: rgba(var(--gold-rgb), .6); }
+.navbar-toggler-icon { filter: invert(1) sepia(.6) saturate(2); }
+
+/* Баскычтар */
+.btn-gold {
+  background: #4a0200;
+  color: #fff;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-weight: 700;
+  transition: background .2s, color .2s, box-shadow .2s, transform .2s;
+}
+.btn-gold:hover, .btn-gold:focus-visible {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+  box-shadow: 0 6px 22px rgba(var(--gold-rgb), .35);
+  transform: translateY(-1px);
+}
+.btn-outline-gold {
+  background: rgba(0, 0, 0, .22);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .4);
+  border-radius: 999px;
+  font-weight: 700;
+}
+.btn-outline-gold:hover, .btn-outline-gold:focus-visible {
+  color: var(--gold-bright);
+  border-color: var(--gold);
+  background: rgba(var(--gold-rgb), .12);
+}
+
+a:focus-visible, button:focus-visible, .form-control:focus-visible, .form-select:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+/* Hero */
+.hero { padding: 40px 0 56px; text-align: center; }
+.hero-pill {
+  display: inline-block;
+  padding: .55rem 1.4rem;
+  border: 1px solid rgba(var(--gold-rgb), .65);
+  border-radius: 999px;
+  background: rgba(var(--gold-rgb), .08);
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.hero h1 { margin: 0; }
+.hero-logo {
+  display: block;
+  width: min(380px, 88%);
+  height: auto;
+  margin: 1.5rem auto 1.75rem;
+  border-radius: 18px;
+  border: 1px solid rgba(var(--gold-rgb), .55);
+  box-shadow: 0 0 0 6px rgba(var(--gold-rgb), .08), 0 18px 60px rgba(0, 0, 0, .6), 0 0 70px rgba(var(--gold-rgb), .2);
+}
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gold);
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin: .75rem auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Белги шакекчеси (эмодзи) */
+.icon-ring {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  width: 96px;
+  height: 96px;
+  font-size: 2.8rem;
+  line-height: 1;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(var(--gold-rgb), .2), rgba(40, 2, 1, .92) 72%);
+  box-shadow: 0 0 0 4px rgba(var(--gold-rgb), .08), inset 0 0 14px rgba(0, 0, 0, .45);
+}
+
+/* Өзгөчө тамактар */
+.special-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.special-card {
+  --c: 184, 147, 90;
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid rgba(var(--c), .45);
+  border-radius: 16px;
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+}
+.special-card:hover {
+  border-color: rgb(var(--c));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .45), 0 0 24px rgba(var(--c), .2);
+  transform: translateY(-3px);
+}
+.special-card.c-copper { --c: 205, 120, 70; }
+.special-card.c-wine   { --c: 210, 80, 80; }
+.special-card.c-cream  { --c: 236, 218, 186; }
+.special-card .icon-ring {
+  width: 112px;
+  height: 112px;
+  font-size: 3.4rem;
+  margin: 0 auto 1rem;
+  border-color: rgb(var(--c));
+  box-shadow: 0 0 0 4px rgba(var(--c), .1), inset 0 0 14px rgba(0, 0, 0, .45);
+}
+.special-card h3 { color: rgb(var(--c)); font-size: 1.3rem; margin-bottom: .35rem; }
+.special-card p { margin: 0; color: var(--muted); }
+
+/* VIP кабиналар */
+.vip {
+  padding: 80px 0;
+  background: linear-gradient(180deg, rgba(62, 1, 0, .55), rgba(40, 2, 1, .35));
+  border-top: 1px solid rgba(var(--gold-rgb), .35);
+  border-bottom: 1px solid rgba(var(--gold-rgb), .35);
+}
+.cabin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (max-width: 767.98px) {
+  .cabin-grid { grid-template-columns: 1fr; }
+}
+.cabin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid rgba(var(--gold-rgb), .45);
+  border-radius: 18px;
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+}
+.cabin:hover {
+  border-color: var(--gold);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .5), 0 0 28px rgba(var(--gold-rgb), .2);
+  transform: translateY(-3px);
+}
+.cabin-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  aspect-ratio: 1;
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(var(--gold-rgb), .2), rgba(40, 2, 1, .92) 72%);
+  box-shadow: 0 0 0 6px rgba(var(--gold-rgb), .08), inset 0 0 18px rgba(0, 0, 0, .5);
+}
+.cabin-num {
+  font: 700 3.6rem / 1 "PT Serif", Georgia, serif;
+  color: var(--gold-bright);
+}
+.cabin-unit {
+  color: var(--muted);
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+.cabin h3 { color: var(--gold-bright); margin: .25rem 0 0; font-size: 1.5rem; }
+.cabin p { margin: 0 0 .5rem; color: var(--muted); }
+.vip-price {
+  text-align: center;
+  margin: 2rem 0 0;
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 1.6rem;
+  color: var(--gold-bright);
+}
+
+/* Меню — все категории отдельно */
+.menu-category {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+.menu-cat-title {
+  color: var(--gold);
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid rgba(var(--gold-rgb), .4);
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--panel);
+  border: 1px solid rgba(var(--gold-rgb), .3);
+  border-radius: 12px;
+  padding: .8rem 1.1rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.menu-item:hover {
+  border-color: var(--gold);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+}
+.menu-item-left {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  min-width: 0;
+}
+.menu-emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.menu-name {
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.menu-item-right {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-left: auto;
+  text-align: right;
+}
+.price { color: var(--gold-bright); font-weight: 700; font-size: 1rem; }
+
+#contact a { color: var(--gold-bright); }
+
+/* Футер */
+.st-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 1.5rem 2rem;
+  background: var(--wine-deep);
+  border-top: 1px solid rgba(var(--gold-rgb), .4);
+  color: var(--muted);
+}
+.st-footer a { color: var(--gold-bright); }
+
+.text-secondary { color: var(--muted) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .menu-item, .special-card, .cabin, .btn-gold { transition: none; }
+}
